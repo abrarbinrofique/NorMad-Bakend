@@ -16,16 +16,6 @@ class Friendrequest(models.Model):
 
 
 
-class Travellerinfo(models.Model):
-    people=models.OneToOneField(settings.AUTH_USER_MODEL,on_delete=models.CASCADE)
-    image=CloudinaryField('image', null=True, blank=True)
-    bio=models.TextField()
-    gender=models.CharField(choices=Gender_types,max_length=15,null=True,blank=True)
-    phone=models.CharField(max_length=15,null=True,blank=True)
-    city=models.CharField(max_length=20)
-    fb=models.CharField(max_length=100)
-    x=models.CharField(max_length=100)
-
 
 
 class Traveller(AbstractUser):
@@ -54,5 +44,15 @@ class Traveller(AbstractUser):
 
 
     
+class Travellerinfo(models.Model):
+    people=models.OneToOneField(Traveller,on_delete=models.CASCADE)
+    image=CloudinaryField('image', null=True, blank=True)
+    bio=models.TextField()
+    gender=models.CharField(choices=Gender_types,max_length=15,null=True,blank=True)
+    phone=models.CharField(max_length=15,null=True,blank=True)
+    city=models.CharField(max_length=20)
+    fb=models.CharField(max_length=100)
+    x=models.CharField(max_length=100)
+
 
 

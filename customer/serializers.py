@@ -31,7 +31,7 @@ class Travelerserializer(serializers.ModelSerializer):
 class Travelerprofile(serializers.ModelSerializer):
     class Meta:
         model=Travellerinfo
-        fields=['people','image','bio','phone','gender','city','fb','x']
+        fields=['id','people','image','bio','phone','gender','city','fb','x']
 
 
 class Friendrequestserializer(serializers.ModelSerializer):

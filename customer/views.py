@@ -11,7 +11,7 @@ from .import serializers
 from rest_framework.authtoken.models import Token
 # from rest_framework.decorators import lo
 from django.contrib.auth import authenticate
-from rest_framework.decorators import api_view
+from rest_framework.decorators import  api_view
 
 
 # Create your views here.
@@ -152,11 +152,29 @@ class addprofileinfo(viewsets.ModelViewSet):
      serializer_class=Travelerprofile
 
      def get_queryset(self):
-       queryset=super().get_queryset()
-       people=self.request.query_params.get ('people')
-       if  people:
-           queryset=queryset.filter(people= people)
-           return queryset
+        queryset = super().get_queryset()
+        people = self.request.query_params.get('people')
+        
+        if self.request.method == 'GET' and people:
+            queryset = queryset.filter(people__id=people)  # Assuming 'people' is the ID
+        
+        return queryset
+
+
+
+
+# class updateprofileinfo(viewsets.ModelViewSet):
+#      queryset=Travellerinfo.objects.all()
+#      serializer_class=Travelerprofile
+
+#      def get_queryset(self):
+#        queryset=super().get_queryset()
+#        people=self.request.query_params.get ('people')
+#        if  people:
+#            queryset=queryset.filter(people= people)
+#            return queryset
+
+
 
 
 
