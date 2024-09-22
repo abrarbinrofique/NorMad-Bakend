@@ -1,4 +1,4 @@
-from django.apps import AppConfig
+from django.s import AppConfig
 
 
 class ChatConfig(AppConfig):

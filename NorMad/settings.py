@@ -113,7 +113,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'NorMad.wsgi.application'
 AUTH_USER_MODEL = 'customer.Traveller'
-
+SECRET_KEY = os.getenv('DJANGO_SECRET_KEY', 'fallback-secret-key')
 # REST_FRAMEWORK = {
 #     'DEFAULT_AUTHENTICATION_CLASSES': [
 #         'rest_framework.authentication.TokenAuthentication',
