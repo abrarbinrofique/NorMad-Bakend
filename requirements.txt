@@ -14,6 +14,7 @@ django-environ
 django-extensions
 django-filter
 djangorestframework
+fontawesome
 fontawesomefree
 gunicorn
 idna
