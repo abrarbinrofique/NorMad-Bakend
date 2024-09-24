@@ -163,7 +163,7 @@ class addprofileinfo(viewsets.ModelViewSet):
        people = self.request.query_params.get('people')
 
        if self.request.method == 'GET' and people:
-            queryset = queryset.filter(people__id=people)  # Assuming 'people' is the ID
+            queryset = queryset.filter(people__id=people) 
 
        return queryset
 
