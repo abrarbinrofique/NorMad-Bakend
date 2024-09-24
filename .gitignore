@@ -2,3 +2,4 @@ NORMAD/.env
 db.sqlite3
 __pycache__/
 venv/
+staticcfiles/fontawesomefree/
