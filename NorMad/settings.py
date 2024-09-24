@@ -31,6 +31,7 @@ DEBUG = True
 # Application definition
 
 INSTALLED_APPS = [
+    'whitenoise.runserver_nostatic',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -64,32 +65,17 @@ MIDDLEWARE = [
 ]
 ALLOWED_HOSTS = ["*"]
 
-CSRF_TRUSTED_ORIGINS = [
-    'http://127.0.0.1',
-    'http://localhost',
-    'https://normad-bakend.onrender.com'
-]
+CSRF_TRUSTED_ORIGINS = ["http://localhost:3000", "https://your-vercel-app-name.vercel.app"]
+
+
 CORS_ALLOW_ALL_ORIGINS = True
-CORS_ALLOW_CREDENTIALS = True
-CORS_ALLOW_METHODS = [
-    'DELETE',
-    'GET',
-    'OPTIONS',
-    'PATCH',
-    'POST',
-    'PUT',
-]
-CORS_ALLOW_HEADERS = [
-    'accept',
-    'accept-encoding',
-    'authorization',
-    'content-type',
-    'dnt',
-    'origin',
-    'user-agent',
-    'x-csrftoken',
-    'x-requested-with',
-]
+CORS_ORIGIN_WHITELIST = (
+    "http://localhost:3000",
+    "http://localhost:8000",
+    "https://your-vercel-app-name.vercel.app",
+)
+
+
 ROOT_URLCONF = 'NorMad.urls'
 
 TEMPLATES = [
@@ -108,23 +94,18 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'NorMad.wsgi.application'
+WSGI_APPLICATION = 'NorMad.wsgi.app'
 AUTH_USER_MODEL = 'customer.Traveller'
-SECRET_KEY = os.getenv('DJANGO_SECRET_KEY', 'fallback-secret-key')
-# REST_FRAMEWORK = {
-#     'DEFAULT_AUTHENTICATION_CLASSES': [
-#         'rest_framework.authentication.TokenAuthentication',
-#     ],
-# }
-
-# Database
-# https://docs.djangoproject.com/en/4.2/ref/settings/#databases
-
+SECRET_KEY = env("SECRET_KEY")
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.environ.get('DATABASE_PATH', 'db.sqlite3'),
-    }
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'postgres',
+        'USER': 'postgres.ptacujcqaysuovkofbna',
+        'PASSWORD': 'CMw#p.3F-SLkSjC',
+        'HOST': 'aws-0-us-east-1.pooler.supabase.com',
+        'PORT': '6543',
+}
 }
 
 
@@ -159,13 +140,12 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
-
 STATIC_URL = 'static/'
-MEDIA_URL = '/media/'
+STATIC_ROOT=BASE_DIR / 'staticfiles'
 
 # Specify the directory where media files are stored
-MEDIA_ROOT = BASE_DIR / 'media'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
+# MEDIA_ROOT = BASE_DIR / 'media'
+# MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 
 
 

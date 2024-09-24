@@ -1,5 +1,6 @@
 asgiref
 beautifulsoup4
+certifi
 charset-normalizer
 cloudinary
 dj-database-url
@@ -23,6 +24,7 @@ packaging
 pillow
 psycopg2-binary
 requests
+six
 soupsieve
 sqlparse
 typing_extensions
