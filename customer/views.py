@@ -151,40 +151,47 @@ class addprofileinfo(viewsets.ModelViewSet):
     queryset=Travellerinfo.objects.all()
     serializer_class=Travelerprofile
 
+     
+
     def get_queryset(self):
-        queryset = super().get_queryset()
-        people_id = self.request.query_params.get('people')
-        
-        if self.request.method == 'GET' and people_id:
-            # Filter based on people ID if present
-            queryset = queryset.filter(people__id=people_id)  # Assuming 'people' is a foreign key relationship
-        
-        return queryset
+       queryset=super().get_queryset()
+       people=self.request.query_params.get ('people')
+       if  people:
+           queryset=queryset.filter(people= people)
+           return queryset
+       queryset = super().get_queryset()
+       people = self.request.query_params.get('people')
 
-    def list(self, request, *args, **kwargs):
-        # Handle GET request to list profiles based on query parameter
-        queryset = self.get_queryset()
-        serializer = self.get_serializer(queryset, many=True)
-        return Response(serializer.data)  # Return a list of profiles
+       if self.request.method == 'GET' and people:
+            queryset = queryset.filter(people__id=people)  # Assuming 'people' is the ID
 
-    def retrieve(self, request, *args, **kwargs):
-        # Handle GET request to retrieve a specific profile
-        instance = self.get_object()  # Get the instance based on the provided ID
-        serializer = self.get_serializer(instance)
-        return Response(serializer.data)  # Return the serialized data
+       return queryset
 
-    def update(self, request, *args, **kwargs):
-        # Handle PUT request to update an existing profile completely
-        instance = self.get_object()  # Get the instance to be updated
-        serializer = self.get_serializer(instance, data=request.data)
-        if serializer.is_valid():
-            serializer.save()  # Save the updated profile
-            return Response(serializer.data)  # Return the serialized data of the updated profile
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-    def put(self, request, *args, **kwargs):
-        # This method will be called for PUT requests
-        return self.update(request, *args, **kwargs)
+    # def list(self, request, *args, **kwargs):
+    #     # Handle GET request to list profiles based on query parameter
+    #     queryset = self.get_queryset()
+    #     serializer = self.get_serializer(queryset, many=True)
+    #     return Response(serializer.data)  # Return a list of profiles
+
+    # def retrieve(self, request, *args, **kwargs):
+    #     # Handle GET request to retrieve a specific profile
+    #     instance = self.get_object()  # Get the instance based on the provided ID
+    #     serializer = self.get_serializer(instance)
+    #     return Response(serializer.data)  # Return the serialized data
+
+    # def update(self, request, *args, **kwargs):
+    #     # Handle PUT request to update an existing profile completely
+    #     instance = self.get_object()  # Get the instance to be updated
+    #     serializer = self.get_serializer(instance, data=request.data)
+    #     if serializer.is_valid():
+    #         serializer.save()  # Save the updated profile
+    #         return Response(serializer.data)  # Return the serialized data of the updated profile
+    #     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+    # def put(self, request, *args, **kwargs):
+    #     # This method will be called for PUT requests
+    #     return self.update(request, *args, **kwargs)
 
 
 # class updateprofileinfo(viewsets.ModelViewSet):
