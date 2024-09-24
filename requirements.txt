@@ -15,12 +15,12 @@ django-extensions==3.2.3
 django-filter==24.3
 djangorestframework==3.15.2
 fontawesome==5.10.1.post1
-fontawesomefree==6.6.0
 idna==3.8
 importlib_metadata==8.4.0
 Markdown==3.7
 packaging==24.1
 pillow==10.4.0
+pipdeptree==2.23.4
 psycopg2-binary==2.9.9
 requests==2.32.3
 six==1.16.0
