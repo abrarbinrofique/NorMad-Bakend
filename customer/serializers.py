@@ -8,7 +8,7 @@ class Travelerserializer(serializers.ModelSerializer):
 
     class Meta:
         model = Traveller
-        fields = ['id','first_name', 'last_name', 'username', 'email', 'password', 'confirm_password']
+        fields = ['id','first_name', 'last_name', 'username','friends', 'email', 'password', 'confirm_password']
         extra_kwargs = {'password': {'write_only': True}}
 
     def validate(self, data):
