@@ -12,6 +12,8 @@ from rest_framework.authtoken.models import Token
 # from rest_framework.decorators import lo
 from django.contrib.auth import authenticate
 from rest_framework.decorators import  api_view
+from rest_framework.decorators import permission_classes
+from rest_framework.permissions import IsAuthenticated
 
 
 # Create your views here.
@@ -80,15 +82,16 @@ class friendrequestviewset(viewsets.ModelViewSet):
     queryset=Friendrequest.objects.all()
     serializer_class=Friendrequestserializer
     
-    @action(detail=False,methods=['post'])
-    def send_request(self,request):
-        sender=request.user
+    @action(detail=True,methods=['post'])
+    def send_request(self,request,pk):
+        sender=Traveller.objects.get(id=pk)
         to_user=request.data.get('to_user')
-        userr=get_object_or_404(Traveller,id=int(to_user))
+        print(sender,to_user)
+        userr=get_object_or_404(Traveller,id=to_user)
         if sender in userr.friends.all():
             return  Response('you are already friend')
 
-        if int(sender.id)!=int(to_user): 
+        if (sender)!=(userr): 
            if to_user:
         
                  reciever=Traveller.objects.get(id=to_user)
