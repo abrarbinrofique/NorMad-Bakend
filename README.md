@@ -1,7 +1,7 @@
-# Creating the basic structure for a README.md file based on the project details provided by the user.
+# NorMad- A travel share site.
 
 readme_content = """
-# Normad
+
 
 Normad is a travel booking and sharing platform where users can book travel plans, share them with friends, and engage in group chats for trip discussions. Users also have personal profiles that include a profile picture and contact information.
 
@@ -24,7 +24,7 @@ Normad is a travel booking and sharing platform where users can book travel plan
 
 1. Clone the repository:
     ```bash
-    git clone https://github.com/abrarbinrofique/NorMad-Frontend.git
+   https://github.com/abrarbinrofique/NorMad-Bakend
     ```
 
 2. Navigate to the project directory:
