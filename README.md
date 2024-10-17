@@ -15,11 +15,11 @@ Normad is a travel booking and sharing platform where users can book travel plan
 
 ## Technologies Used
 
-- **Backend**: Django REST Framework
-- **Frontend**: JavaScript
-- **Database**: SQLite (for development), PostgreSQL (production-ready)
-- **Cloud Storage**: Cloudinary for image uploads
-- **Deployment**: Vercel,supabase
+-![Django](https://img.shields.io/badge/Django-092E20?style=for-the-badge&logo=django&logoColor=white)
+![PostgreSQL (Supabase)](https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white)
+![Vercel](https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)
+![Cloudinary](https://img.shields.io/badge/Cloudinary-3448C5?style=for-the-badge&logo=cloudinary&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
 
 ## Installation
 
@@ -70,13 +70,3 @@ Here are the main dependencies used in this project (as listed in `requirements.
 
 You can check out the live demo of the project [here](https://abrarbinrofique.github.io/NorMad-Frontend/).
 
-## License
-
-This project is licensed under the MIT License.
-"""
-
-# Saving the content to a file
-with open("/mnt/data/README_Normad.md", "w") as file:
-    file.write(readme_content)
-
-"/mnt/data/README_Normad.md"
