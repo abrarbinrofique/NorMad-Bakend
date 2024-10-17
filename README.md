@@ -25,7 +25,7 @@ Normad is a travel booking and sharing platform where users can book travel plan
 
 1. Clone the repository:
     ```bash
-   https://github.com/abrarbinrofique/NorMad-Bakend
+    git clone git@github.com:abrarbinrofique/NorMad-Bakend.git
     ```
 
 2. Navigate to the project directory:
