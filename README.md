@@ -1,6 +1,6 @@
 # NorMad- A travel share site.
 
-readme_content = """
+
 
 
 Normad is a travel booking and sharing platform where users can book travel plans, share them with friends, and engage in group chats for trip discussions. Users also have personal profiles that include a profile picture and contact information.
