@@ -19,7 +19,7 @@ Normad is a travel booking and sharing platform where users can book travel plan
 - **Frontend**: JavaScript
 - **Database**: SQLite (for development), PostgreSQL (production-ready)
 - **Cloud Storage**: Cloudinary for image uploads
-- **Deployment**: Vercel
+- **Deployment**: Vercel,supabase
 
 ## Installation
 
